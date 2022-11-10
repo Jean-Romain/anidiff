@@ -1,0 +1,20 @@
+Package: anidiff
+Type: Package
+Title: Anisotropic Diffusion
+Version: 1.0
+Date: 2022-11-10
+Authors@R: c(
+    person("Jean-Romain", "Roussel", email = "jean-romain.roussel.1@ulaval.ca", role = c("aut", "cre", "cph")),
+    person("Alberto", "Morcillo Sanz", email = "", role = c("cph"), comment = "Author of the c++ code. See README"))
+Description: Anisotropic diffusion, is a technique aiming at reducing image noise without removing 
+  significant parts of the image content, typically edges, lines or other details that are important
+  for the interpretation of the image.
+License: GPL (>= 2)
+Imports: Rcpp (>= 1.0.9)
+Suggest: 
+  raster, 
+  terra,
+  png
+LinkingTo: Rcpp
+RoxygenNote: 7.2.0
+Encoding: UTF-8
