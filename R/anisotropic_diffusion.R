@@ -34,7 +34,7 @@ anisotropic_diffusion.RasterLayer = function(x, iteration = 50, lambda = 0.2, k 
 }
 
 #' @export
-anisotropic_diffusion.RasterLayer = function(x, iteration = 50, lambda = 0.2, k = 10)
+anisotropic_diffusion.SpatRaster = function(x, iteration = 50, lambda = 0.2, k = 10)
 {
   M <- terra::as.matrix(x)
   M2 <- anisotropic_diffusion(M, iteration, lambda, k)
