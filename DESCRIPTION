@@ -11,10 +11,7 @@ Description: Anisotropic diffusion, is a technique aiming at reducing image nois
   for the interpretation of the image.
 License: GPL (>= 2)
 Imports: Rcpp (>= 1.0.9)
-Suggest: 
-  raster, 
-  terra,
-  png
+Suggest: raster,terra,png
 LinkingTo: Rcpp
 RoxygenNote: 7.2.0
 Encoding: UTF-8
