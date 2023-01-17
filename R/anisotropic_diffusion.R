@@ -36,9 +36,9 @@ anisotropic_diffusion.RasterLayer = function(x, iteration = 50, lambda = 0.2, k 
 #' @export
 anisotropic_diffusion.SpatRaster = function(x, iteration = 50, lambda = 0.2, k = 10)
 {
-  M <- terra::as.matrix(x)
+  M <- terra::as.matrix(x, wide = TRUE)
   M2 <- anisotropic_diffusion(M, iteration, lambda, k)
-  y <- x
+  y <- terra::deepcopy(x)
   y[] <- M2
   y
 }
@@ -49,8 +49,8 @@ anisotropic_diffusion.matrix = function(x, iteration = 50, lambda = 0.2, k = 10)
   r = range(x)
   m = 0
 
-  if (x[1] >= 0 && x[2] <= 255) m = 1
-  if (x[1] >= 0 && x[2] <= 1) m = 255
+  if (r[1] >= 0 && r[2] <= 255) m = 1
+  if (r[1] >= 0 && r[2] <= 1) m = 255
   if (m == 0) stop("The image must range in [0,1] or [0,255]")
 
   y = cpp_anisotropic_diffusion(x*m, iteration, lambda, k)
