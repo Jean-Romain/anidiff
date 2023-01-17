@@ -39,14 +39,14 @@ anisotropic_diffusion.SpatRaster = function(x, iteration = 50, lambda = 0.2, k =
   M <- terra::as.matrix(x, wide = TRUE)
   M2 <- anisotropic_diffusion(M, iteration, lambda, k)
   y <- terra::deepcopy(x)
-  y[] <- M2
+  y[] <- as.numeric(t(M2))
   y
 }
 
 #' @export
 anisotropic_diffusion.matrix = function(x, iteration = 50, lambda = 0.2, k = 10)
 {
-  r = range(x)
+  r = range(x, na.rm = TRUE)
   m = 0
 
   if (r[1] >= 0 && r[2] <= 255) m = 1
